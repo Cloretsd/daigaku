@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<title>template test</title>
+<style>
+    strong{font-size: 20px;}
+strong{color: rgb(129, 13, 32);}
+</style>
+</head>
+<body>
+<p><strong>高専の進路状況</strong></p>
+<div id="main">
+    <form method="GET">
+        <p>高専の名前を入力してください</p>
+        <label for = "name"></label>
+        <input type="text" id = "name" value ="{{request.GET.name}}" placeholder="高専名" name="name" />
+        <input type="button" value="ボタン">
+    
+
+        <p>地方を選択してください</p>
+        <label for = "area"></label>
+        <input type="text" id = "area" value ="{{request.GET.area}}" placeholder="地方名" name="area" />
+        <input type="button" value="ボタン">
+    </form>
+
+    {% if myapp_data %}
+    <p>{{myapp_data.newtitle}}</p>
+    <a href="{{myapp_data.new}}">{{myapp_data.new}}</a>
+    <p>{{myapp_data.not}}</p>
+    {% endif %}
+
+    The names are:
+    {% for i in myapp_data2.list %}
+        <li>{{i}}</li>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>
